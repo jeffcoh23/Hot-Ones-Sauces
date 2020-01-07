@@ -38,9 +38,8 @@ class App extends React.Component<Props, State> {
         <StatusBar barStyle="light-content" />
         <Title
           style={{
-            fontFamily: "Cochin",
             fontStyle: "italic",
-            fontWeight: "500",
+            fontWeight: "800",
             fontSize: 36,
             color: "#e42f2c"
           }}
