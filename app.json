@@ -1,0 +1,25 @@
+{
+  "expo": {
+    "name": "Hot Ones Sauces",
+    "slug": "hot-ones-sauces",
+    "privacy": "public",
+    "sdkVersion": "36.0.0",
+    "platforms": ["ios", "android", "web"],
+    "version": "1.0.2",
+    "orientation": "portrait",
+    "icon": "./assets/hotOnesSplash.png",
+    "splash": {
+      "image": "./assets/hotOnesSplash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffcf02"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": ["**/*"],
+    "ios": {
+      "bundleIdentifier": "com.jeffcohen.hotonessauces",
+      "supportsTablet": true
+    }
+  }
+}
