@@ -11,39 +11,45 @@ import {
 } from "react-native";
 import { sauces, Seasons } from "../../../data/sauces";
 import SeasonPicker from "../../../components/SeasonPicker";
-import { Item, Icon, Input, Button, Segment, Text } from "native-base";
+import { Item, Icon, Input } from "native-base";
 import EmptyCard from "../../../components/EmptyCard";
+import { NavigationTabProp, BottomTabBarProps } from "react-navigation-tabs";
 
 interface State {
   selectedSeason: Seasons;
   selectedText: string;
-  selectedPage: "All Sauces" | "Favorites";
+  favoriteIds: number[];
 }
 
 export const screenWidth = Math.round(Dimensions.get("window").width);
 
 interface Props {
-  refresh: () => void;
-  favoriteIds: number[];
+  screenProps: {
+    favoriteIds: number[];
+    refresh: () => void;
+  };
 }
 
 class HotSauceListScreen extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);
     this.state = {
-      selectedPage: "All Sauces",
       selectedSeason: Seasons.all,
-      selectedText: ""
+      selectedText: "",
+      favoriteIds: []
     };
   }
+
+  refresh = async () => {
+    await AsyncStorage.getAllKeys((e, items) => {
+      const numberedItems = items.map(i => parseInt(i));
+      this.setState({ favoriteIds: numberedItems });
+    });
+  };
   changeSeason = (itemValue: any, itemPosition) => {
     this.setState({ selectedSeason: itemValue });
   };
 
-  filteredSauces = () =>
-    this.state.selectedPage === "All Sauces"
-      ? sauces
-      : sauces.filter(sauce => this.props.favoriteIds.includes(sauce.id));
   render() {
     return (
       <View style={{ marginHorizontal: 10, flex: 1 }}>
@@ -85,67 +91,20 @@ class HotSauceListScreen extends React.Component<Props, State> {
             />
           </View>
         </View>
-        <Segment
-          style={{
-            // width: screenWidth / 2,
-            alignContent: "center",
-            alignItems: "center",
-            backgroundColor: "black"
-          }}
-        >
-          <Button
-            onPress={() => this.setState({ selectedPage: "All Sauces" })}
-            style={
-              this.state.selectedPage === "All Sauces"
-                ? styles.activeButton
-                : styles.inactiveButton
-            }
-            first
-          >
-            <Text
-              style={
-                this.state.selectedPage === "All Sauces"
-                  ? styles.activeText
-                  : styles.inactiveText
-              }
-            >
-              All Sauces
-            </Text>
-          </Button>
-          <Button
-            onPress={() => this.setState({ selectedPage: "Favorites" })}
-            style={
-              this.state.selectedPage === "Favorites"
-                ? styles.activeButton
-                : styles.inactiveButton
-            }
-            last
-          >
-            <Text
-              style={
-                this.state.selectedPage === "Favorites"
-                  ? styles.activeText
-                  : styles.inactiveText
-              }
-            >
-              Favorites
-            </Text>
-          </Button>
-        </Segment>
-        {this.filteredSauces().length === 0 ? (
+        {sauces.length === 0 ? (
           <EmptyCard />
         ) : (
           <FlatList
             style={{ flex: 1 }}
             renderItem={({ item }) => (
               <HotSauceCard
-                refresh={this.props.refresh}
-                favoriteIds={this.props.favoriteIds}
+                refresh={this.props.screenProps.refresh}
+                favoriteIds={this.props.screenProps.favoriteIds}
                 sauce={item}
               />
             )}
             keyExtractor={sauce => sauce.id.toString()}
-            data={this.filteredSauces()
+            data={sauces
               .filter(
                 sauce =>
                   this.state.selectedSeason === Seasons.all ||

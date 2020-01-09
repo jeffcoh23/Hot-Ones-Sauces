@@ -1,12 +1,7 @@
 import React from "react";
-import {
-  StyleSheet,
-  SafeAreaView,
-  StatusBar,
-  AsyncStorage
-} from "react-native";
-import HotSauceListScreen from "./src/screens/HotSauceListScreen";
+import { SafeAreaView, StatusBar, AsyncStorage, View } from "react-native";
 import { Title } from "native-base";
+import { TabNavigator } from "./src/screens/HotSauceListScreen/navigation";
 
 interface Props {}
 
@@ -34,37 +29,29 @@ class App extends React.Component<Props, State> {
   };
   render() {
     return (
-      <SafeAreaView style={styles.container}>
-        <StatusBar barStyle="light-content" />
-        <Title
-          style={{
-            fontStyle: "italic",
-            fontWeight: "800",
-            fontSize: 36,
-            color: "#e42f2c"
+      <View style={{ backgroundColor: "black", flex: 1 }}>
+        <SafeAreaView>
+          <StatusBar barStyle="light-content" />
+          <Title
+            style={{
+              fontStyle: "italic",
+              fontWeight: "800",
+              fontSize: 36,
+              color: "#e42f2c"
+            }}
+          >
+            HOT ONES SAUCES
+          </Title>
+        </SafeAreaView>
+        <TabNavigator
+          screenProps={{
+            refresh: this.refresh,
+            favoriteIds: this.state.favoriteIds
           }}
-        >
-          HOT ONES SAUCES
-        </Title>
-        <HotSauceListScreen
-          refresh={this.refresh}
-          favoriteIds={this.state.favoriteIds}
         />
-      </SafeAreaView>
+      </View>
     );
   }
 }
 
 export default App;
-
-const styles = StyleSheet.create({
-  bottomBanner: {
-    position: "absolute",
-    bottom: 0,
-    backgroundColor: "black"
-  },
-  container: {
-    flex: 1,
-    backgroundColor: "black"
-  }
-});
