@@ -1,7 +1,7 @@
 import React from "react";
 import { SafeAreaView, StatusBar, AsyncStorage, View } from "react-native";
 import { Title } from "native-base";
-import { TabNavigator } from "./src/screens/HotSauceListScreen/navigation";
+import { TabNavigator } from "./src/navigation";
 
 interface Props {}
 

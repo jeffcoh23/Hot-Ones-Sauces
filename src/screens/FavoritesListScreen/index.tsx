@@ -1,8 +1,8 @@
 import React from "react";
-import HotSauceCard from "../../../components/HotSauceCard";
+import HotSauceCard from "../../components/HotSauceCard";
 import { View, FlatList } from "react-native";
 import { sauces } from "../../../data/sauces";
-import EmptyCard from "../../../components/EmptyCard";
+import EmptyCard from "../../components/EmptyCard";
 
 interface Props {
   screenProps: {

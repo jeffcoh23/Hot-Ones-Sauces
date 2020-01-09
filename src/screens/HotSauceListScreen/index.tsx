@@ -1,5 +1,5 @@
 import React from "react";
-import HotSauceCard from "../../../components/HotSauceCard";
+import HotSauceCard from "../../components/HotSauceCard";
 import {
   View,
   FlatList,
@@ -10,9 +10,9 @@ import {
   AsyncStorage
 } from "react-native";
 import { sauces, Seasons } from "../../../data/sauces";
-import SeasonPicker from "../../../components/SeasonPicker";
+import SeasonPicker from "../../components/SeasonPicker";
 import { Item, Icon, Input } from "native-base";
-import EmptyCard from "../../../components/EmptyCard";
+import EmptyCard from "../../components/EmptyCard";
 import { NavigationTabProp, BottomTabBarProps } from "react-navigation-tabs";
 
 interface State {

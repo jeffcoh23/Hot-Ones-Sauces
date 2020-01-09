@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { View } from "react-native";
 import { Card, Title } from "native-base";
-import { Sauce } from "../../data/sauces";
 interface Props {}
 
 class EmptyCard extends Component<Props> {

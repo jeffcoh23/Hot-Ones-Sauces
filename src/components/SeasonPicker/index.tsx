@@ -1,6 +1,6 @@
 import React from "react";
 import { Picker, Icon } from "native-base";
-import { Seasons } from "./../../data/sauces";
+import { Seasons } from "../../../data/sauces";
 
 interface Props {
   selectedSeason: Seasons;

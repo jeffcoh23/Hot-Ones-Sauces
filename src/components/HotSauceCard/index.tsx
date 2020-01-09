@@ -10,7 +10,7 @@ import {
   Body,
   Right
 } from "native-base";
-import { Sauce } from "../../data/sauces";
+import { Sauce } from "../../../data/sauces";
 interface Props {
   sauce: Sauce;
   refresh: () => void;
