@@ -1,4 +1,4 @@
-% Hot Ones Sauces
+# Hot Ones Sauces
 
 Are you a fan of the Hot Ones series by First We Feast?  
 
