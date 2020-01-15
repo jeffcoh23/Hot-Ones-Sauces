@@ -4,6 +4,7 @@ import { createBottomTabNavigator } from "react-navigation-tabs";
 import FavoritesListScreen from "../screens/FavoritesListScreen";
 import React from "react";
 import { Icon } from "native-base";
+import YoutubeVideoList from "../screens/YoutubeVideoList";
 export const TabNavigation = createBottomTabNavigator(
   {
     Home: {
@@ -25,11 +26,25 @@ export const TabNavigation = createBottomTabNavigator(
           />
         )
       }
+    },
+    Videos: {
+      screen: YoutubeVideoList,
+      navigationOptions: {
+        tabBarLabel: "Episodes",
+        tabBarIcon: ({ tintColor }) => (
+          <Icon
+            style={{ color: tintColor }}
+            type={"FontAwesome"}
+            name="video-camera"
+          />
+        )
+      }
     }
   },
   {
     tabBarOptions: {
-      showLabel: false,
+      showLabel: true,
+      adaptive: false,
       showIcon: true,
       activeTintColor: "#e42f2c",
       inactiveTintColor: "black",
