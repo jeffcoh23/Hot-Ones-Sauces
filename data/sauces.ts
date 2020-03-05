@@ -114,8 +114,7 @@ export const episodes: YoutubeVideos[] = [
   {
     id: 2,
     season: Seasons.s1,
-    youtubeUrl:
-      "https://www.youtube.com/watch?v=aGhqumcE6_w&list=PLAzrgbu8gEMIfV-k5JA89NP3j2JGsFapZ",
+    youtubeUrl: "https://www.youtube.com/watch?v=eEKHOXiuJeM",
     youtubeTitle:
       "Anthony Rizzo On Chicago Cubs Rivalries & Baseball Superstitions While Eating Spicy Wings"
   },
