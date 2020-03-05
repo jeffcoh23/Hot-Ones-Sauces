@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "Hot Ones Sauces",
-    "slug": "hot-ones-sauces",
+    "name": "Hot Ones Fans",
+    "slug": "hot-ones-fans",
     "privacy": "public",
     "sdkVersion": "36.0.0",
     "platforms": ["ios", "android", "web"],

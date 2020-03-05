@@ -34,13 +34,12 @@ class App extends React.Component<Props, State> {
           <StatusBar barStyle="light-content" />
           <Title
             style={{
-              fontStyle: "italic",
               fontWeight: "800",
               fontSize: 36,
               color: "#e42f2c"
             }}
           >
-            HOT ONES SAUCES
+            HOT ONES FANS
           </Title>
         </SafeAreaView>
         <TabNavigator
